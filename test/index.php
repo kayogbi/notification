@@ -3,6 +3,5 @@
 
 use notification\Email;
 
-$novoEmail = new Email(2,'mail.guanambiweb.com.br','contato@guanambiweb.com.br','30248612','tsl','587','contato@guanambiweb.com.br','Guanambiweb');
-$novoEmail->sendmail('Assunto teste','esta mensagem é teste','contato@guanambiweb.com.br','Guanambiweb','kayoalvestj.gbi@gmail.com','kayo Alves');
-
+$novoEmail = new Email(2,'mail.host.com','user@mail.com','pass','(tsl / ssl) ','port(587)','user@mail.com.br','userNome');
+$novoEmail->sendmail('Assunto','mensagem','Rem_email','Rem_nome','Des_email','Des_name');
