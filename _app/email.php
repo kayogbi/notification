@@ -9,21 +9,21 @@ class Email {
 
     private $mail;
 
-    public function __construct() {
+    public function __construct($SmtpDebug,$Host,$User,$Pass,$SmtpSecure,$port,$RemEmail,$RemNome) {
 
         $this->mail = new PHPMailer(true);
-        $this->mail->SMTPDebug = 2;                                 // Enable verbose debug output
+        $this->mail->SMTPDebug = $SmtpDebug;                                 // Enable verbose debug output
         $this->mail->isSMTP();                                      // Set mailer to use SMTP
-        $this->mail->Host = 'mail.guanambiweb.com.br';  // Specify main and backup SMTP servers
+        $this->mail->Host = $Host;  // Specify main and backup SMTP servers
         $this->mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $this->mail->Username = 'contato@guanambiweb.com.br';                 // SMTP username
-        $this->mail->Password = '30248612';                           // SMTP password
-        $this->mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-        $this->mail->Port = 587;                                    // TCP port to connect to
+        $this->mail->Username = $User;                 // SMTP username
+        $this->mail->Password = $Pass;                           // SMTP password
+        $this->mail->SMTPSecure = $SmtpSecure;                            // Enable TLS encryption, `ssl` also accepted
+        $this->mail->Port = $port;                                    // TCP port to connect to
         $this->mail->CharSet = 'utf-8';
         $this->mail->setLanguage('br');
         $this->mail->isHTML(TRUE);
-        $this->mail->setFrom('contato@guanambiweb.com.br', 'Kayo');
+        $this->mail->setFrom($RemEmail, $RemNome);
     }
 
     public function sendmail($assunto, $mensagem,  $reme_email, $reme_name ,$destina_email, $destina_name) {
